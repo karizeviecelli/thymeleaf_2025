@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head><meta charset="UTF-8"><title>Usuários</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<h1>Usuários</h1>
+
+<table >
+  <thead><tr><th>Nome</th><th>E-mail</th></tr></thead>
+  <tbody>
+    <tr th:each="p : ${usuarios}">
+      <td th:text="${p.nome}">Nome</td>
+      <td th:text="${p.email}">Email</td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(usuarios)}">
+      <td colspan="2">Nenhum usuário cadastrado.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a th:href="@{/form}">Cadastrar novo</a></p>
+</body>
+</html>
